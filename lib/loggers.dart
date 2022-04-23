@@ -4,7 +4,7 @@ enum TypeLogger { error, message }
 
 class Loggers {
   static _show(Object? object,
-      {Object? stacktrace, TypeLogger? typeLogger = TypeLogger.message}) {
+      {StackTrace? stacktrace, TypeLogger? typeLogger = TypeLogger.message}) {
     switch (typeLogger) {
       case TypeLogger.error:
         log('🚨 ${object?.toString() ?? 'null'} 🚨');
@@ -21,7 +21,7 @@ class Loggers {
 
   static showError(
     Object? object,
-    Object? stacktrace,
+    StackTrace? stacktrace,
   ) =>
       _show(object, stacktrace: stacktrace, typeLogger: TypeLogger.error);
 
